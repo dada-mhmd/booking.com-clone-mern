@@ -1,4 +1,4 @@
-const API_BASE_URL =import.meta.env.VITE_NODE_ENV === 'development' ? 'http://localhost:5000' : '/api';
+const API_BASE_URL =import.meta.env.VITE_NODE_ENV === 'development' ? 'http://localhost:5000' : '';
 
 export const register = async (formData) => {
   const res = await fetch(`${API_BASE_URL}/api/users/register`, {
