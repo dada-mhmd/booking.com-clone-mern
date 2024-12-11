@@ -3,8 +3,12 @@ import Layout from "./layouts/Layout";
 import Register from "./pages/Register";
 import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
+import { useAppContext } from "./context/AppContext";
+import AddHotel from "./pages/AddHotel";
 
 const App = () => {
+  const { isLoggedIn } = useAppContext();
+
   return (
     <>
       <Toaster position='top-center' reverseOrder={false} />
@@ -16,6 +20,12 @@ const App = () => {
 
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
+
+            {isLoggedIn && (
+              <>
+                <Route path='/add-hotel' element={<AddHotel />} />
+              </>
+            )}
 
             <Route path='*' element={<p>404 - Page Not Found</p>} />
           </Route>
