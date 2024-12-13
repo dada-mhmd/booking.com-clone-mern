@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
 import { useAppContext } from "./context/AppContext";
 import AddHotel from "./pages/AddHotel";
+import MyHotels from "./pages/MyHotels";
 
 const App = () => {
   const { isLoggedIn } = useAppContext();
@@ -24,6 +25,7 @@ const App = () => {
             {isLoggedIn && (
               <>
                 <Route path='/add-hotel' element={<AddHotel />} />
+                <Route path='/my-hotels' element={<MyHotels />} />
               </>
             )}
 

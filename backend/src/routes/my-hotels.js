@@ -1,5 +1,5 @@
 import express from 'express';
-import { createHotel } from '../controllers/myHotelsCtrl.js';
+import { createHotel, getMyHotels } from '../controllers/myHotelsCtrl.js';
 import { upload } from '../utils/multer.js';
 import { verifyToken } from '../middelwares/verifyToken.js';
 import { body } from 'express-validator';
@@ -16,5 +16,7 @@ router.post('/',verifyToken,[
     body('pricePerNight').notEmpty().isNumeric().withMessage('Price per night is required and must be a number'),
     body('faicilities').notEmpty().isArray().withMessage('Faicilities  are required'),
 ],upload.array('imageFiles',6) , createHotel)
+
+router.get('/', verifyToken, getMyHotels)
 
 export default router;
